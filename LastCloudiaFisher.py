@@ -19,7 +19,7 @@ def callback(hwnd, extra):
         global global_window_handle
 
         global_window_handle = hwnd
-        print("Window %s:" % win32gui.GetWindowText(hwnd))
+        print("Window Found: %s" % win32gui.GetWindowText(hwnd))
         # print(hwnd)
         # print("\tLocation: (%d, %d)" % (global_x, global_y))
         # print("\t    Size: (%d, %d)" % (global_w, global_h))
@@ -75,8 +75,8 @@ if __name__ == '__main__':
         rect = win32gui.GetWindowRect(global_window_handle)
 
         # THESE LINES DEFINE WHICH MAP THIS IS SET FOR
-        # position = ladourBox(rect)
-        position = ntBox(rect)
+        position = ladourBox(rect)
+        # position = ntBox(rect)
         # THESE LINES DEFINE WHICH MAP THIS IS SET FOR
 
         # Scans left to right, top to bottom, like reading a book
@@ -101,7 +101,7 @@ if __name__ == '__main__':
 
                     # WAIT FOR FISH TO BE REELED IN
                     print(runCount, 'Waiting for fish to be reeled in')
-                    time.sleep(3.6) #Big "Megrona Whale" take a long time to reel in, 3.5 seconds is less time than it takes
+                    time.sleep(4) #Big "Megrona Whale" take a long time to reel in, 3.5 seconds is less time than it takes
 
                     # CLICK "CLOSE" ON CAUGHT FISH PAGE
                     mouse.click()
@@ -109,7 +109,7 @@ if __name__ == '__main__':
 
                     # Wait for 
                     print(runCount, 'Waiting for screen change')
-                    time.sleep(.5) #1.4 worked 100% over 100's (500+) of runs
+                    time.sleep(.3) #1.4 worked 100% over 100's (500+) of runs
 
                     #CLICK "CAST OUT"
                     mouse.click()
