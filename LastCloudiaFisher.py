@@ -58,6 +58,20 @@ def ntBox(rect):
 
     return (x, y, x2, y2)
 
+def NEW_Box(rect):
+    window_x = rect[0]
+    window_y = rect[1]
+    window_w = rect[2] - rect[0]
+    window_h = rect[3] - rect[1]
+
+    x = window_x + (.0 * window_w)
+    y = window_y + (.0 * window_h)
+    x2 = (window_x + window_w) - (.0 * window_w)
+    y2 = (window_y + window_h) - (.0 * window_h)
+
+    return (x, y, x2, y2)
+
+
 if __name__ == '__main__':
     findWindow()
 
@@ -80,42 +94,42 @@ if __name__ == '__main__':
         # THESE LINES DEFINE WHICH MAP THIS IS SET FOR
 
         # Scans left to right, top to bottom, like reading a book
-        for i in range(1):
-            im = ImageGrab.grab(bbox = position)
+        # for i in range(1):
+        im = ImageGrab.grab(bbox = position)
 
-            # width, height = im.size
-            for i, pixel in enumerate(im.getdata()):
-                if pixel == (255,255,255): #IF WHITE IS FOUND
+        # width, height = im.size
+        for i, pixel in enumerate(im.getdata()):
+            if pixel == (255,255,255): #IF WHITE IS FOUND
 
-                    # THE FOLLOWING 2 LINES ARE TEST CODE IF YOU WANT TO SEE THE PHOTO BEING CHECKED
-                    # im.show()
-                    # exit()
-                    # THE ABOVE 2 LINES ARE TEST CODE IF YOU WANT TO SEE THE PHOTO BEING CHECKED
+                # THE FOLLOWING 2 LINES ARE TEST CODE IF YOU WANT TO SEE THE PHOTO BEING CHECKED
+                # im.show()
+                # exit()
+                # THE ABOVE 2 LINES ARE TEST CODE IF YOU WANT TO SEE THE PHOTO BEING CHECKED
 
-                    print('\nRun:', runCount, 'Pixel Found at:', i)
+                print('\nRun:', runCount, 'Pixel Found at:', i)
 
-                    # This is the code that automates clicking
-                    # CLICK "REEL IN"
-                    mouse.click()
-                    print(runCount, 'Clicked Reel In')
+                # This is the code that automates clicking
+                # CLICK "REEL IN"
+                mouse.click()
+                print(runCount, 'Clicked Reel In')
 
-                    # WAIT FOR FISH TO BE REELED IN
-                    print(runCount, 'Waiting for fish to be reeled in')
-                    time.sleep(4) #Big "Megrona Whale" take a long time to reel in, 3.5 seconds is less time than it takes
+                # WAIT FOR FISH TO BE REELED IN
+                print(runCount, 'Waiting for fish to be reeled in')
+                time.sleep(6.7) #Big "Megrona Whale" take a long time to reel in, after a lot of testing 6.75 seems good and 6.5 caused issues on NT
 
-                    # CLICK "CLOSE" ON CAUGHT FISH PAGE
-                    mouse.click()
-                    print(runCount, 'Clicked Close')
+                # CLICK "CLOSE" ON CAUGHT FISH PAGE
+                mouse.click()
+                print(runCount, 'Clicked Close')
 
-                    # Wait for 
-                    print(runCount, 'Waiting for screen change')
-                    time.sleep(.3) #1.4 worked 100% over 100's (500+) of runs
+                # Wait for 
+                print(runCount, 'Waiting for screen change')
+                time.sleep(.3) # .25 seems safe, but stick with .3 in case of slower PCs
 
-                    #CLICK "CAST OUT"
-                    mouse.click()
-                    print(runCount, 'Clicked Cast Out')
+                #CLICK "CAST OUT"
+                mouse.click()
+                print(runCount, 'Clicked Cast Out')
 
 
 
-                    runCount = runCount + 1
-                    break # Exit closest 'for' loop, return to looking for next caught fish
+                runCount = runCount + 1
+                break # Exit closest 'for' loop, return to looking for next caught fish
