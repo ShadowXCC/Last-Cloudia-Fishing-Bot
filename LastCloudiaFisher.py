@@ -58,6 +58,19 @@ def ntBox(rect):
 
     return (x, y, x2, y2)
 
+def zardBox(rect):
+    window_x = rect[0]
+    window_y = rect[1]
+    window_w = rect[2] - rect[0]
+    window_h = rect[3] - rect[1]
+
+    x = window_x + (.29 * window_w)
+    y = window_y + (.567 * window_h)
+    x2 = (window_x + window_w) - (.69 * window_w)
+    y2 = (window_y + window_h) - (.422 * window_h)
+
+    return (x, y, x2, y2)
+
 def NEW_Box(rect):
     window_x = rect[0]
     window_y = rect[1]
@@ -78,19 +91,44 @@ if __name__ == '__main__':
     # THIS IS TEST CODE TO TUNE THE "BOX"
     # position = ladourBox()
     # position = ntBox()
+    # rect = win32gui.GetWindowRect(global_window_handle)
+    # position = zardBox(rect)
 
     # im = ImageGrab.grab(bbox = position)
     # im.show()
+    # exit()
     # THIS IS TEST CODE TO TUNE THE "BOX"
 
     runCount = 0
+
+    print("Make sure the Last Cloudia window is open and visible on your main monitor")
+    print("Starting bot in 5 seconds")
+    time.sleep(.5)
+    print(5)
+    time.sleep(1)
+    print(4)
+    time.sleep(1)
+    print(3)
+    time.sleep(1)
+    print(2)
+    time.sleep(1)
+    print(1)
+    time.sleep(1)
+
+    print("Moving mouse to \"Cast Out\" button")
+    rect = win32gui.GetWindowRect(global_window_handle)
+    mouse.move(rect[0] + (.5 * (rect[2] - rect[0])), rect[1] + (.80 * (rect[3] - rect[1]))) # Move mouse to "Cast Out" button
+
+    print("Clicking \"Cast Out\"")
+    mouse.click()
 
     while True:
         rect = win32gui.GetWindowRect(global_window_handle)
 
         # THESE LINES DEFINE WHICH MAP THIS IS SET FOR
-        position = ladourBox(rect)
+        # position = ladourBox(rect)
         # position = ntBox(rect)
+        position = zardBox(rect)
         # THESE LINES DEFINE WHICH MAP THIS IS SET FOR
 
         # Scans left to right, top to bottom, like reading a book
@@ -124,6 +162,10 @@ if __name__ == '__main__':
                 # Wait for 
                 print(runCount, 'Waiting for screen change')
                 time.sleep(.3) # .25 seems safe, but stick with .3 in case of slower PCs
+
+                print(runCount, "Moving mouse to \"Cast Out\" button")
+                rect = win32gui.GetWindowRect(global_window_handle)
+                mouse.move(rect[0] + (.5 * (rect[2] - rect[0])), rect[1] + (.80 * (rect[3] - rect[1]))) # Move mouse to "Cast Out" button
 
                 #CLICK "CAST OUT"
                 mouse.click()
