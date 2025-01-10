@@ -146,6 +146,10 @@ if __name__ == '__main__':
 
                 print('\nRun:', runCount, 'Pixel Found at:', i)
 
+                print(runCount, "Moving mouse to \"Reel In\" button")
+                rect = win32gui.GetWindowRect(global_window_handle)
+                mouse.move(rect[0] + (.5 * (rect[2] - rect[0])), rect[1] + (.80 * (rect[3] - rect[1]))) # Move mouse to "Reel In" button
+
                 # This is the code that automates clicking
                 # CLICK "REEL IN"
                 mouse.click()
