@@ -107,7 +107,7 @@ if __name__ == '__main__':
 
                 mouse.click() # Click off "RESULT - Summary" screen
                 print("Clicked off \"RESULT - Summary\" screen")
-                time.sleep(1.8)
+                time.sleep(2)
 
 
                 mouse.move(rect[0] + (.5 * (rect[2] - rect[0])), rect[1] + (.63 * (rect[3] - rect[1]))) # Move to "Close button"
@@ -115,20 +115,23 @@ if __name__ == '__main__':
                 time.sleep(.25)
                 mouse.click() # Click "Close" button
                 print("Clicked \"Close\" button.")
-                time.sleep(1.8)
+                time.sleep(2)
                 
 
                 mouse.click() # Click off "RESULT - Squad" screen
                 print("Clicked off \"RESULT - Squad\" screen")
-                time.sleep(.8)
+                time.sleep(1)
                 mouse.click() # Click off "RESULT - Squad" screen (again I think ...)
                 print("Clicked off \"RESULT - Squad\" screen")
-                time.sleep(2.75)
-                
+                time.sleep(4) # Account EXP attribution happens here, this is the issue at the currnet moment
+
+                # mouse.click()
+                # print("Clicked off Account EXP attribution animation")
+                # time.sleep(4)
 
                 mouse.click() # Click off "RESULT - Sub Arks"
                 print("Clicked off \"RESULT - Sub Arks\" screen")
-                time.sleep(5) # Longer sleep as animation takes a moment to load
+                time.sleep(15) # Wait a bit for animation of tower to play
                 
                 # print("Sleeping 10 seconds for animation")
                 # time.sleep(10)# Wait a bit for animation of tower to play
@@ -155,7 +158,7 @@ if __name__ == '__main__':
                 print("Clicked \"Start Mission\" button")
                 time.sleep(1.8)
 
-
+                mouse.click()
                 print("Clicked \"START QUEST\", sleeping for 20 seconds")
                 time.sleep(20) # Sleep for 15 seconds to allow next mission to start and complete
                 print("Slept for 20 seconds, searching")
